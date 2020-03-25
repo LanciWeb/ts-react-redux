@@ -6,7 +6,7 @@ export interface Action {
   payload: any;
 }
 
-export const todosReducer = (state: Todo[] = [], action: Action) => {
+export default (state: Todo[] = [], action: Action) => {
   switch (action.type) {
     case ActionTypes.fetchTodos:
       return action.payload;

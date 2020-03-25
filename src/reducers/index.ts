@@ -1,5 +1,11 @@
+import { Todo } from '../actions';
+import todosReducer from './todos';
 import { combineReducers } from 'redux';
 
-export default combineReducers({
-  counter: () => 1
+interface ReduxState {
+  todos: Todo[];
+}
+
+export default combineReducers<ReduxState>({
+  todos: todosReducer
 });

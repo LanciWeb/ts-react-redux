@@ -9,10 +9,17 @@ interface AppProps {
 }
 
 class App extends React.Component<AppProps> {
-  state = { counter: 0 };
+  state = { isLoading: false };
   deleteIconStyle = { color: 'red', cursor: 'pointer' };
+
+  componentDidUpdate = (prevProps: AppProps): void => {
+    if (!prevProps.todos.length && this.props.todos.length)
+      this.setState({ isLoading: false });
+  };
+
   onButtonClick = (): void => {
-    this.props.fetchToDos();
+    this.setState({ isLoading: true });
+    setTimeout(() => this.props.fetchToDos(), 2000);
   };
 
   onDeleteClick = (id: number): void => {
@@ -40,6 +47,11 @@ class App extends React.Component<AppProps> {
     return (
       <div>
         <button onClick={this.onButtonClick}>Fetch</button>
+        <br />
+        {this.state.isLoading && (
+          <i className="fas fa-10x fa-spin fa-spinner" />
+        )}
+
         <div>{this.listTodo(this.props.todos)}</div>
       </div>
     );

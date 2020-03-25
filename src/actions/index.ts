@@ -10,7 +10,12 @@ export interface Todo {
 
 interface FetchTodoAction extends Action {
   payload: Todo[];
-  type: ActionTypes;
+  type: ActionTypes.fetchTodos;
+}
+
+interface DeleteTodoAction extends Action {
+  payload: number;
+  type: ActionTypes.deleteToDo;
 }
 
 const url = 'https://jsonplaceholder.typicode.com/todos';
@@ -20,3 +25,8 @@ export const fetchToDos = () => async (dispatch: Dispatch<FetchTodoAction>) => {
 
   dispatch({ type: ActionTypes.fetchTodos, payload: response.data });
 };
+
+export const deleteTodo = (id: number): DeleteTodoAction => ({
+  type: ActionTypes.deleteToDo,
+  payload: id
+});

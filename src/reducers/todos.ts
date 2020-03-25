@@ -1,9 +1,4 @@
-import { Todo, ActionTypes } from '../actions';
-
-export interface Action {
-  type: ActionTypes;
-  payload: any;
-}
+import { Todo, Action, ActionTypes } from '../actions';
 
 export default (state: Todo[] = [], action: Action) => {
   switch (action.type) {

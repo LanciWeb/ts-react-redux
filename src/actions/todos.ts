@@ -8,12 +8,12 @@ export interface Todo {
   completed: boolean;
 }
 
-interface FetchTodoAction extends Action {
+export interface FetchTodoAction extends Action {
   payload: Todo[];
   type: ActionTypes.fetchTodos;
 }
 
-interface DeleteTodoAction extends Action {
+export interface DeleteTodoAction extends Action {
   payload: number;
   type: ActionTypes.deleteToDo;
 }

@@ -10,7 +10,7 @@ interface AppProps {
 class App extends React.Component<AppProps> {
   state = { counter: 0 };
 
-  componentDidMount = () => {
+  onButtonClick = (): void => {
     this.props.fetchToDos();
   };
 
@@ -23,7 +23,12 @@ class App extends React.Component<AppProps> {
   );
 
   render() {
-    return <div>{this.listTodo(this.props.todos)}</div>;
+    return (
+      <div>
+        <button onClick={this.onButtonClick}>Fetch</button>
+        <div>{this.listTodo(this.props.todos)}</div>
+      </div>
+    );
   }
 }
 const mapStateToProps = (state: ReduxState): { todos: Todo[] } => {

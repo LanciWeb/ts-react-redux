@@ -15,7 +15,7 @@ interface FetchTodoAction extends Action {
 
 const url = 'https://jsonplaceholder.typicode.com/todos';
 
-export const fetchToDo = () => async (dispatch: Dispatch<FetchTodoAction>) => {
+export const fetchToDos = () => async (dispatch: Dispatch<FetchTodoAction>) => {
   const response = await axios.get<Todo[]>(url);
 
   dispatch({ type: ActionTypes.fetchTodos, payload: response.data });

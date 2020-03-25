@@ -9,7 +9,7 @@ const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App color="red" />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
